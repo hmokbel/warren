@@ -1,0 +1,17 @@
+# Environment variables — never commit
+.env
+.env.*
+*.env
+
+# Secrets
+secrets.json
+credentials.json
+*.pem
+*.key
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
