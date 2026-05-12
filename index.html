@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warren — AI-Powered Financial Assistant</title>
+  <meta name="description" content="Warren is an AI-powered financial assistant that helps users securely connect bank and investment accounts, analyze spending, and receive personalized financial insights." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- No external scripts, no tracking, no ads, no cookies -->
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <header>
+    <nav>
+      <a class="nav-logo" href="#hero">Warren</a>
+      <ul class="nav-links">
+        <li><a href="#what-warren-does">Features</a></li>
+        <li><a href="#plaid">Plaid</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section id="hero">
+    <div class="container">
+      <span class="hero-badge">Plaid-Integrated · Bank-Level Security</span>
+      <h1>Your AI-Powered Financial Assistant</h1>
+      <p>Warren helps you securely connect your bank and investment accounts, understand your spending, and receive personalized financial insights — all with your privacy at the center.</p>
+    </div>
+  </section>
+
+  <!-- ── What Warren Does ── -->
+  <section id="what-warren-does">
+    <div class="container">
+      <p class="section-label">Features</p>
+      <h2>What Warren Does</h2>
+      <p>Warren is a personal finance app that brings together your financial accounts in one place and uses AI to surface the insights that matter most to you.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-icon">🏦</span>
+          <h3>Account Connection</h3>
+          <p>Securely link checking, savings, and investment accounts through Plaid's encrypted connection flow.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">📊</span>
+          <h3>Spending Analysis</h3>
+          <p>Automatically categorize transactions and visualize where your money goes each month.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">💡</span>
+          <h3>Financial Insights</h3>
+          <p>Receive AI-generated observations about your balances, trends, and opportunities to save.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🔒</span>
+          <h3>Privacy First</h3>
+          <p>Warren never stores your bank login credentials. Your data is used solely to power the app's features.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How Warren Uses Plaid ── -->
+  <section id="plaid">
+    <div class="container">
+      <p class="section-label">Plaid Integration</p>
+      <h2>How Warren Uses Plaid</h2>
+      <p>Warren uses <a href="https://plaid.com" target="_blank" rel="noopener noreferrer">Plaid</a> — a trusted, industry-standard financial data network — to connect users' accounts safely and securely.</p>
+
+      <ol class="step-list">
+        <li>
+          <span class="step-num">1</span>
+          <div class="step-body">
+            <h3>User Initiates Connection</h3>
+            <p>The user taps "Connect Account" within Warren. No financial data is accessed until the user explicitly consents.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div class="step-body">
+            <h3>Plaid Link Opens</h3>
+            <p>Warren launches Plaid Link, a secure, Plaid-hosted UI. Warren never sees, handles, or stores the user's bank username or password at any point.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div class="step-body">
+            <h3>Authentication at the Bank</h3>
+            <p>The user authenticates directly with their financial institution inside Plaid Link. Multi-factor authentication (MFA), if required by the bank, is handled entirely within Plaid Link.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <div class="step-body">
+            <h3>Plaid Returns a Token</h3>
+            <p>Upon successful authentication, Plaid returns a short-lived <code>public_token</code> to Warren's mobile client. This token has no value on its own and cannot be used to access account data directly.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <div class="step-body">
+            <h3>Secure Server-Side Exchange</h3>
+            <p>Warren's mobile app sends the <code>public_token</code> to Warren's backend API over HTTPS/TLS. The backend exchanges it for an <code>access_token</code> using the Plaid API. The <code>access_token</code> is stored securely server-side and is never exposed to the client or user.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">6</span>
+          <div class="step-body">
+            <h3>Data Retrieval and Analysis</h3>
+            <p>Warren's backend retrieves transaction, balance, and account data from Plaid on the user's behalf. This data is then processed to generate spending summaries and financial insights displayed within the app.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── Data Security ── -->
+  <section id="security">
+    <div class="container">
+      <p class="section-label">Security</p>
+      <h2>Data Security</h2>
+      <p>Warren is built with security as a foundational requirement, not an afterthought. Below are the specific measures in place to protect user data.</p>
+
+      <ul class="security-list">
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <h3>No Credential Storage</h3>
+            <p>Warren never collects, stores, or transmits your bank username or password. Authentication is handled entirely by Plaid Link and your financial institution.</p>
+          </div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <h3>Encrypted Transport</h3>
+            <p>All data transmitted between the Warren app, Warren's backend, and the Plaid API is encrypted using HTTPS/TLS.</p>
+          </div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <h3>Server-Side Secrets</h3>
+            <p>Plaid API credentials (client ID and secret) are stored exclusively on Warren's backend server. They are never embedded in the mobile app or exposed to end users.</p>
+          </div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <h3>Explicit User Consent</h3>
+            <p>No financial data is accessed without a clear, explicit user action. Users must actively choose to connect an account.</p>
+          </div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <h3>Data Minimization</h3>
+            <p>Warren requests only the Plaid API products and account data necessary to provide the app's core features. No unnecessary data is collected.</p>
+          </div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <h3>Secure Backend Architecture</h3>
+            <p>All Plaid API calls that require credentials are made server-side. The mobile app communicates with Warren's backend, which acts as a secure intermediary.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Privacy Policy ── -->
+  <section id="privacy">
+    <div class="container">
+      <p class="section-label">Legal</p>
+      <h2>Privacy Policy</h2>
+      <p><strong>Effective date:</strong> May 12, 2026 &nbsp;·&nbsp; <strong>Owner:</strong> Husein Mokbel</p>
+
+      <div class="policy-body">
+
+        <div class="policy-section">
+          <h3>1. Information We Collect</h3>
+          <p>When you connect a bank or investment account, Warren — via Plaid — retrieves account and transaction data (account names, balances, transaction descriptions, amounts, and dates) that you have authorized us to access. We do not collect your bank login credentials at any time.</p>
+          <p>We may also collect basic account information you provide when registering (such as your name and email address) and standard usage logs for debugging and performance monitoring.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>2. How We Use Your Information</h3>
+          <p>Your financial data is used exclusively to provide Warren's core functionality: categorizing transactions, calculating balances, and generating personalized financial insights within the app. We do not sell your data, share it with advertisers, or use it for any purpose unrelated to delivering the service.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>3. Plaid's Role</h3>
+          <p>Warren uses Plaid Technologies, Inc. to facilitate bank account connections. By connecting an account, you also agree to Plaid's <a href="https://plaid.com/legal/#consumers" target="_blank" rel="noopener noreferrer">End User Privacy Policy</a>. Plaid's privacy practices are independent of Warren's.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>4. Data Sharing</h3>
+          <p>We do not sell, rent, or trade your personal or financial information to third parties. Data may be shared only with service providers necessary to operate Warren (such as cloud infrastructure and the Plaid API), and only to the extent required to provide the service. Any such providers are contractually bound to handle data in accordance with applicable law.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>5. Cookies and Tracking</h3>
+          <p>The Warren website (this page) does not use cookies, tracking pixels, or any third-party analytics scripts. No personal data is collected through this website.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>6. Security Measures</h3>
+          <p>We implement industry-standard security measures including HTTPS/TLS encryption in transit and secure, access-controlled storage for sensitive data. Plaid API secrets are stored server-side only and are never exposed to client applications or end users.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>7. Children's Privacy</h3>
+          <p>Warren is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us so we can delete it.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>8. Changes to This Policy</h3>
+          <p>We may update this Privacy Policy from time to time. Material changes will be communicated via the app or by updating the effective date above. Continued use of Warren after changes take effect constitutes acceptance of the updated policy.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Data Retention and Deletion ── -->
+  <section id="retention">
+    <div class="container">
+      <p class="section-label">Your Rights</p>
+      <h2>Data Retention and Deletion</h2>
+      <p>You remain in control of your data at all times.</p>
+
+      <div class="retention-box">
+        <h3>What We Retain</h3>
+        <p>Warren retains financial account and transaction data only as long as you have an active account and have connected that institution. Data is used solely to provide the service you requested.</p>
+
+        <br />
+
+        <h3>Your Rights</h3>
+        <ul>
+          <li>You may disconnect any linked account at any time from within the Warren app.</li>
+          <li>Upon disconnection, Warren will remove the associated Plaid access token, preventing any further data retrieval from that institution.</li>
+          <li>You may request complete deletion of your Warren account and all associated data by contacting us at <a href="mailto:mokbel.huss@gmail.com">mokbel.huss@gmail.com</a>.</li>
+          <li>Deletion requests will be honored within a reasonable timeframe, subject to any legal retention obligations.</li>
+          <li>Revoking access through Plaid's own portal (plaid.com/portal) will independently revoke Warren's access to your institution data.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Get in Touch</p>
+      <h2>Contact</h2>
+      <p>Questions about your data, this privacy policy, or Warren in general? Reach out directly.</p>
+      <a class="contact-email" href="mailto:mokbel.huss@gmail.com">
+        ✉ mokbel.huss@gmail.com
+      </a>
+      <p style="margin-top:12px; font-size:0.85rem; color:#9e9e9e;">
+        Owner &amp; Developer: Husein Mokbel
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <p>&copy; 2026 Warren · Husein Mokbel · <a href="mailto:mokbel.huss@gmail.com">mokbel.huss@gmail.com</a></p>
+    <p style="margin-top:6px;">This site contains no tracking, no cookies, and no third-party scripts.</p>
+  </footer>
+
+</body>
+</html>
